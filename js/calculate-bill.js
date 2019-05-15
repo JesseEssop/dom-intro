@@ -6,7 +6,7 @@ var calculateBtn = document.querySelector(".calculateBtn");
 //create a variable that will keep track of the total bill
 var totalBill = 0;
 //add an event listener for when the add button is pressed
-function calculateBtnClicked(){
+function calculateBtnClicked() {
     var billString = billStringElement.value;
     //split the string
     var billItems = billString.split(",");
@@ -27,16 +27,16 @@ function calculateBtnClicked(){
     var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = roundedBillTotal;
 
-    
-    if((roundedBillTotal >= 20)  || (roundedBillTotal < 30)){
+
+    if ((roundedBillTotal >= 20) || (roundedBillTotal < 30)) {
         billTotalElement.classList.add("warning");
         billTotalElement.classList.remove("danger");
     }
-    if (roundedBillTotal >= 30){
+    if (roundedBillTotal >= 30) {
         billTotalElement.classList.add("danger");
         billTotalElement.classList.remove("warning");
     }
-if (roundedBillTotal < 20 ){
+    if (roundedBillTotal < 20) {
         billTotalElement.classList.remove("danger");
         billTotalElement.classList.remove("warning");
     }
