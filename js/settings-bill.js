@@ -29,6 +29,28 @@ function update() {
     warningLevel = Number(warningLevelSetting.value);
     criticalLevel = Number(criticalLevelSetting.value);
 
+    if (total3 >= warningLevel) {
+        // adding the danger class will make the text red
+        totalSettings.classList.add("warning");
+        totalSettings.classList.remove("danger");
+    }
+    if (total3 >= criticalLevel) {
+        totalSettings.classList.add("danger");
+        totalSettings.classList.remove("warning");
+    }
+    if (total3 < warningLevel) {
+        // adding the danger class will make the text red
+        totalSettings.classList.remove("warning");
+        totalSettings.classList.remove("danger");
+    }
+    if (total3 >= criticalLevel){
+        billAddBtn.removeEventListener('click', settingsBillTotal)
+
+    }
+    else{
+        billAddBtn.addEventListener('click', settingsBillTotal)
+    }
+
 
 }
 
@@ -71,6 +93,10 @@ function settingsBillTotal() {
         // adding the danger class will make the text red
         totalSettings.classList.remove("warning");
         totalSettings.classList.remove("danger");
+    }
+    if (total3 >= criticalLevel){
+        billAddBtn.removeEventListener('click', settingsBillTotal)
+
     }
 
 
