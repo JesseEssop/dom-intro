@@ -2,22 +2,16 @@
 var billStringElement = document.querySelector(".billString");
 var billTotalElement = document.querySelector(".billTotal")
 var calculateBtn = document.querySelector(".calculateBtn");
-var totalBill = 0;
-var billInstance = CalculateManager();
+var billInstances = CalculateManager();
 
 
 
 function calculateBtnClicked() {
-    var billString = billStringElement.value;
-    billInstance.add(billString);
+    billInstances.add(billStringElement.value);
     
-    billTotalElement.classList.remove("warning");
-    billTotalElement.classList.remove("danger");
-    billTotalElement.classList.add(billInstance.level());
-    billTotalElement.innerHTML = billInstance.total();
-
+    //billTotalElement.classList.remove("warning");
+    //billTotalElement.classList.remove("danger");
+    billTotalElement.classList.add(billInstances.level());
+    billTotalElement.innerHTML = billInstances.total();
 }
- 
-
-
 calculateBtn.addEventListener('click', calculateBtnClicked)
