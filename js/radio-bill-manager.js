@@ -1,35 +1,35 @@
-function RadioManager (){
-    
+function RadioManager() {
+
     var callRadio = 0;
     var smsRadio = 0;
     var totalRadio = 0;
 
 
-    function RadioAdd (radio){
+    function RadioAdd(radio) {
         var billRadio = radio;
         if (billRadio === "call") {
             callRadio = callRadio + 2.75
         }
-        else if(billRadio === "sms") {
+        else if (billRadio === "sms") {
             smsRadio = smsRadio + 0.75;
-        } 
+        }
     }
     function callRadioTotal() {
-    
+
         return callRadio.toFixed(2)
     }
-    
-    function smsRadioTotal(){
-        
+
+    function smsRadioTotal() {
+
         return smsRadio.toFixed(2)
     }
 
-    function radioTotal (){
+    function radioTotal() {
         totalRadio = callRadio + smsRadio
         return totalRadio.toFixed(2);
     }
 
-    function RadioWarning (){
+    function RadioWarning() {
         if ((radioTotal() >= 30) && (radioTotal() < 50)) {
             return "warning"
         }
@@ -38,10 +38,10 @@ function RadioManager (){
         }
     }
     return {
-        add : RadioAdd,
-        call : callRadioTotal,
-        sms : smsRadioTotal,
-        total : radioTotal,
-        warning : RadioWarning,
+        add: RadioAdd,
+        call: callRadioTotal,
+        sms: smsRadioTotal,
+        total: radioTotal,
+        warning: RadioWarning,
     }
 }
